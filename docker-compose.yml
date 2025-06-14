@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  ticket-sales-api:
+    image: postgres:17
+    container_name: ticket-sales-api
+    hostname: ticket-sales-api
+    environment:
+      POSTGRES_USER: ticket_sales
+      POSTGRES_PASSWORD: Abc123456*
+      POSTGRES_MULTIPLE_DATABASES: box_office,notification,back_office
+    ports:
+      - "8001:5432"
+    volumes:
+      - ticket-sales-api-data:/var/lib/postgresql/data
+      - ./init-multiple-dbs.sh:/docker-entrypoint-initdb.d/init-multiple-dbs.sh
+    restart: unless-stopped
+    networks:
+      - dev_network
+
+networks:
+  dev_network:
+    external: true
+
+volumes:
+  ticket-sales-api-data:

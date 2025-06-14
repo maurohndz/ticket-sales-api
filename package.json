@@ -13,19 +13,25 @@
     "lint:fix": "npm run lint:fix --workspaces",
     "prepare": "husky install"
   },
-  "keywords": ["monorepo", "api", "microservices"],
+  "keywords": [
+    "monorepo",
+    "api",
+    "microservices"
+  ],
   "author": "Mauro Hernández",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^24.0.1",
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
-    "prettier": "^3.1.1",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
-    "typescript": "^5.3.3"
+    "prettier": "^3.1.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
   },
   "lint-staged": {
     "*.{js,ts}": [
