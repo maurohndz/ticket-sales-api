@@ -1,0 +1,21 @@
+{
+  // Extend the base TypeScript configuration from the root
+  "extends": "../tsconfig.json",
+  
+  "compilerOptions": {
+    // Output directory for compiled files
+    "outDir": "./dist",
+    
+    // Root directory of source files
+    "rootDir": "./src",
+    
+    // Enable project references
+    "composite": true
+  },
+  
+  // Files to include in compilation
+  "include": ["src/**/*"],
+  
+  // Files to exclude from compilation
+  "exclude": ["node_modules", "dist", "**/*.test.ts"]
+}

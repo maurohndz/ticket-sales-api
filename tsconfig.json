@@ -1,0 +1,82 @@
+{
+  "compilerOptions": {
+    // ECMAScript target version for compiled JavaScript
+    "target": "ES2022",
+    
+    // Module system to use
+    "module": "NodeNext",
+    
+    // Module resolution strategy
+    "moduleResolution": "NodeNext",
+    
+    // Library files to include in compilation
+    "lib": ["ES2022"],
+    
+    // Enable all strict type checking options
+    "strict": true,
+    
+    // Enable compatibility with CommonJS modules
+    "esModuleInterop": true,
+    
+    // Skip type checking of declaration files
+    "skipLibCheck": true,
+    
+    // Ensure consistent casing in file names
+    "forceConsistentCasingInFileNames": true,
+    
+    // Allow importing JSON files
+    "resolveJsonModule": true,
+    
+    // Generate corresponding .d.ts file
+    "declaration": true,
+    
+    // Generate source maps for debugging
+    "sourceMap": true,
+    
+    // Remove all comments except copy-right header comments
+    "removeComments": true,
+    
+    // Raise error on expressions and declarations with an implied 'any' type
+    "noImplicitAny": true,
+    
+    // Enable strict null checks
+    "strictNullChecks": true,
+    
+    // Enable strict function types
+    "strictFunctionTypes": true,
+    
+    // Enable strict bind call apply
+    "strictBindCallApply": true,
+    
+    // Enable strict property initialization
+    "strictPropertyInitialization": true,
+    
+    // Raise error on 'this' expressions with an implied 'any' type
+    "noImplicitThis": true,
+    
+    // Parse in strict mode and emit "use strict" for each source file
+    "alwaysStrict": true,
+    
+    // Report errors on unused locals
+    "noUnusedLocals": true,
+    
+    // Report errors on unused parameters
+    "noUnusedParameters": true,
+    
+    // Report error when not all code paths in function return a value
+    "noImplicitReturns": true,
+    
+    // Report errors for fallthrough cases in switch statement
+    "noFallthroughCasesInSwitch": true,
+    
+    // Base directory to resolve non-relative module names
+    "baseUrl": ".",
+    
+    // Path mapping for module resolution
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  // Files to exclude from compilation
+  "exclude": ["node_modules", "dist"]
+}
