@@ -16,13 +16,13 @@ const options = {
     ],
     views: true,
     additional: {
-        timestamps: true,
-        underscored: true,
+        paranoid: true,
+        createdAt: 'created_at',
+        updatedAt: 'updated_at',
+        deletedAt: 'deleted_at'
     },
     singularize: true,
-    useDefine: false,
-    quote: "'",
-    fileExtension: '.ts'
+    useDefine: true,
 };
 
 const auto = new SequelizeAuto(
