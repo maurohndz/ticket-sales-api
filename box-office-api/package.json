@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
-    "generate-models": "dotenv -v ENVIRONMENT=development -- node plugins/sequelize_auto.ts"
+    "generate-models": "dotenv -v ENVIRONMENT=development -- node plugins/sequelize_auto.js"
   },
   "keywords": [],
   "author": "",

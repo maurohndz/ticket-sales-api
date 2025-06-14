@@ -1,16 +1,15 @@
 // External
 import SequelizeAuto from "sequelize-auto";
-import type { AutoOptions } from "sequelize-auto";
 import '../src/config/loadEnv.js';
 
-const options: AutoOptions = {
-    host: process.env.DB_HOST as string,
+const options = {
+    lang: 'ts',
+    host: process.env.DB_HOST,
     dialect: 'postgres',
     directory: './src/shared/database/models',
     port: Number(process.env.DB_PORT),
     caseModel: 'c',
     caseFile: 'c',
-    lang: 'esm',
     tables: [
         'customers',
         'credentials',
@@ -21,13 +20,15 @@ const options: AutoOptions = {
         underscored: true,
     },
     singularize: true,
-    useDefine: false
+    useDefine: false,
+    quote: "'",
+    fileExtension: '.ts'
 };
 
-const auto = new (SequelizeAuto as any)(
-    process.env.DB_NAME as string,
-    process.env.DB_USER as string,
-    process.env.DB_PASSWORD as string,
+const auto = new SequelizeAuto(
+    process.env.DB_NAME,
+    process.env.DB_USER,
+    process.env.DB_PASSWORD,
     options
 );
 

@@ -26,5 +26,11 @@
     "@typescript-eslint/no-misused-promises": "error",
     "no-console": ["warn", { "allow": ["warn", "error"] }],
     "prettier/prettier": "error"
-  }
+  },
+  "ignorePatterns": [
+    "plugins/**/*",
+    "dist/**/*",
+    "node_modules/**/*",
+    "**/models/**/*"
+  ]
 }
