@@ -1,25 +1,22 @@
 // External
-import SequelizeAuto from "sequelize-auto";
+import SequelizeAuto from 'sequelize-auto';
 import '../src/config/loadEnv.js';
 
 const options = {
     lang: 'ts',
     host: process.env.DB_HOST,
     dialect: 'postgres',
-    directory: './src/shared/database/models',
+    directory: './../models',
     port: Number(process.env.DB_PORT),
     caseModel: 'c',
     caseFile: 'c',
-    tables: [
-        'customers',
-        'credentials',
-    ],
+    tables: ['customers', 'credentials'],
     views: true,
     additional: {
         paranoid: true,
         createdAt: 'created_at',
         updatedAt: 'updated_at',
-        deletedAt: 'deleted_at'
+        deletedAt: 'deleted_at',
     },
     singularize: true,
     useDefine: true,
@@ -32,6 +29,6 @@ const auto = new SequelizeAuto(
     options
 );
 
-auto.run().then(() => {
+void auto.run().then(() => {
     console.log('Process Completed');
 });
