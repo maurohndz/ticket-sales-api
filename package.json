@@ -3,7 +3,9 @@
     "version": "1.0.0",
     "description": "Monorepo containing three APIs: notification, back-office, and box-office",
     "private": true,
+    "type": "module",
     "scripts": {
+        "box-office:models": "dotenv -v ENVIRONMENT=local -- node ./src/Contexts/BoxOffice/shared/infrastructure/persistence/postgresql/config/sequelize_auto.js",
         "lint": "npm run lint --workspaces",
         "lint:fix": "npm run lint:fix --workspaces",
         "prepare": "husky install"

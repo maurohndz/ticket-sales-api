@@ -1,12 +1,19 @@
-// External
+import fs from 'fs';
 import SequelizeAuto from 'sequelize-auto';
-import '../src/config/loadEnv.js';
+import { resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
+import '../../../../../../../shared/utils/loadEnv.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const outputDir = resolve(__dirname, './../models');
 
 const options = {
     lang: 'ts',
     host: process.env.DB_HOST,
     dialect: 'postgres',
-    directory: './../models',
+    directory: outputDir,
     port: Number(process.env.DB_PORT),
     caseModel: 'c',
     caseFile: 'c',
@@ -22,6 +29,14 @@ const options = {
     useDefine: true,
 };
 
+console.log('Configuración de conexión:');
+console.log('Host:', process.env.DB_HOST);
+console.log('Port:', process.env.DB_PORT);
+console.log('Database:', process.env.DB_NAME);
+console.log('User:', process.env.DB_USER);
+console.log('Password:', process.env.DB_PASSWORD ? '***' : 'NO CONFIGURADA');
+console.log('Directorio de salida:', outputDir);
+
 const auto = new SequelizeAuto(
     process.env.DB_NAME,
     process.env.DB_USER,
@@ -29,6 +44,9 @@ const auto = new SequelizeAuto(
     options
 );
 
-void auto.run().then(() => {
-    console.log('Process Completed');
+auto.run().then(() => {
+    console.log('Proceso completado exitosamente');
+}).catch((error) => {
+    console.error('Error durante la generación de modelos:', error.message);
+    process.exit(1);
 });
