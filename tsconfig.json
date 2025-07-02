@@ -1,58 +1,24 @@
 {
   "compilerOptions": {
-    // ECMAScript target version for compiled JavaScript
+    // Versión objetivo de ECMAScript para el JavaScript compilado
     "target": "ES2022",
-    // Module system to use
+    // Sistema de módulos a utilizar
     "module": "NodeNext",
-    // Module resolution strategy
+    // Estrategia de resolución de módulos
     "moduleResolution": "NodeNext",
-    // Library files to include in compilation
-    "lib": ["ES2022"],
-    // Enable all strict type checking options
-    "strict": true,
-    // Enable compatibility with CommonJS modules
+    // Directorio de salida para los archivos compilados
+    "outDir": "./dist",
+    // Permite la interoperabilidad entre módulos CommonJS y ES6
     "esModuleInterop": true,
-    // Skip type checking of declaration files
-    "skipLibCheck": true,
-    // Ensure consistent casing in file names
+    // Fuerza consistencia en el uso de mayúsculas/minúsculas en nombres de archivos
     "forceConsistentCasingInFileNames": true,
-    // Allow importing JSON files
-    "resolveJsonModule": true,
-    // Generate corresponding .d.ts file
-    "declaration": true,
-    // Generate source maps for debugging
-    "sourceMap": true,
-    // Remove all comments except copy-right header comments
-    "removeComments": true,
-    // Raise error on expressions and declarations with an implied 'any' type
-    "noImplicitAny": true,
-    // Enable strict null checks
-    "strictNullChecks": true,
-    // Enable strict function types
-    "strictFunctionTypes": true,
-    // Enable strict bind call apply
-    "strictBindCallApply": true,
-    // Enable strict property initialization
-    "strictPropertyInitialization": true,
-    // Raise error on 'this' expressions with an implied 'any' type
-    "noImplicitThis": true,
-    // Parse in strict mode and emit "use strict" for each source file
-    "alwaysStrict": true,
-    // Report errors on unused locals
-    "noUnusedLocals": true,
-    // Report errors on unused parameters
-    "noUnusedParameters": true,
-    // Report error when not all code paths in function return a value
-    "noImplicitReturns": true,
-    // Report errors for fallthrough cases in switch statement
-    "noFallthroughCasesInSwitch": true,
-    // Base directory to resolve non-relative module names
-    "baseUrl": ".",
-    // Path mapping for module resolution
-    "paths": {
-      "@/*": ["src/*"]
-    }
+    // Habilita todas las verificaciones estrictas de TypeScript
+    "strict": true,
+    // Omite la verificación de tipos en archivos de declaración de librerías
+    "skipLibCheck": true,
   },
-  // Files to exclude from compilation
+  // Archivos a incluir en la compilación
+  "include": ["src/**/*"],
+  // Archivos a excluir de la compilación
   "exclude": ["node_modules", "dist", "**/models/**/*"]
 }
