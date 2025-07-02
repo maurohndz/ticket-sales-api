@@ -6,10 +6,11 @@
     "type": "module",
     "scripts": {
         "box-office:models": "dotenv -v ENVIRONMENT=local -- node ./src/Contexts/BoxOffice/shared/infrastructure/persistence/postgresql/config/sequelize_auto.js",
-        "box-office:api:local": "dotenv -v ENVIRONMENT=local -- ts-node-dev --respawn --transpile-only src/Apps/BoxOffice/api/index.ts",
         "lint": "eslint . --ext .ts",
         "lint:fix": "eslint . --ext .ts --fix",
-        "build": "tsc"
+        "test": "jest",
+        "test:watch": "jest --watch",
+        "test:coverage": "jest --coverage"
     },
     "author": "Mauro Hernández",
     "license": "ISC",

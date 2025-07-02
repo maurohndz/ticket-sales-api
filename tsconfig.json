@@ -16,9 +16,14 @@
     "strict": true,
     // Omite la verificación de tipos en archivos de declaración de librerías
     "skipLibCheck": true,
+
+    "types": ["jest", "node"]
   },
   // Archivos a incluir en la compilación
-  "include": ["src/**/*"],
+  "include": [
+    "src/**/*",
+    "test/**/*"
+  ],
   // Archivos a excluir de la compilación
   "exclude": ["node_modules", "dist", "**/models/**/*"]
 }
