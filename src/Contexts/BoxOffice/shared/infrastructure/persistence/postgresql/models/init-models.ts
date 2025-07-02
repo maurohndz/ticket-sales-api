@@ -1,8 +1,8 @@
 import type { Sequelize } from "sequelize";
-import { credential as _credential } from "./credential";
-import type { credentialAttributes, credentialCreationAttributes } from "./credential";
-import { customer as _customer } from "./customer";
-import type { customerAttributes, customerCreationAttributes } from "./customer";
+import { credential as _credential } from "./credential.js";
+import type { credentialAttributes, credentialCreationAttributes } from "./credential.js";
+import { customer as _customer } from "./customer.js";
+import type { customerAttributes, customerCreationAttributes } from "./customer.js";
 
 export {
   _credential as credential,
