@@ -5,6 +5,7 @@
     "main": "dist/index.js",
     "type": "module",
     "scripts": {
+        "bo:api:dev": "dotenv -v ENVIRONMENT=development -- ts-node-dev --loader ts-node/esm ./src/Apps/BoxOffice/api/src/index.ts",
         "box-office:models": "dotenv -v ENVIRONMENT=local -- node ./src/Contexts/BoxOffice/shared/infrastructure/persistence/postgresql/config/sequelize_auto.js",
         "lint": "eslint . --ext .ts",
         "lint:fix": "eslint . --ext .ts --fix",
