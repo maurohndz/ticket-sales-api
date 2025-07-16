@@ -1,10 +1,10 @@
 class BaseError extends Error {
-    ownParams: {};
+    params: {};
 
     constructor(error: string | undefined, params = {}) {
         super(error);
 
-        this.ownParams = params;
+        this.params = params;
     }
 }
 

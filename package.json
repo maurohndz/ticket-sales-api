@@ -2,25 +2,27 @@
     "name": "apis-colas",
     "version": "1.0.0",
     "description": "Implementacion de Sistema de venta de entradas con arquitectura hexagonal",
-    "main": "dist/index.js",
-    "type": "module",
     "scripts": {
         "bo:api:dev": "dotenv -v ENVIRONMENT=development -- ts-node-dev --loader ts-node/esm ./src/Apps/BoxOffice/api/src/index.ts",
         "box-office:models": "dotenv -v ENVIRONMENT=local -- node ./src/Contexts/BoxOffice/shared/infrastructure/persistence/postgresql/config/sequelize_auto.js",
         "lint": "eslint . --ext .ts",
         "lint:fix": "eslint . --ext .ts --fix",
-        "test": "jest",
+        "test:unit": "NODE_ENV=test jest",
         "test:watch": "jest --watch",
-        "test:coverage": "jest --coverage"
+        "test:coverage": "jest --coverage",
+        "test:bo:api:features": "NODE_ENV=test cucumber-js -p boxOffice_api"
     },
     "author": "Mauro Hernández",
     "license": "ISC",
     "devDependencies": {
+        "@cucumber/cucumber": "^12.0.0",
         "@types/cors": "^2.8.19",
+        "@types/cucumber": "^6.0.1",
         "@types/express": "^5.0.3",
         "@types/jest": "^30.0.0",
-        "@types/node": "^24.0.10",
+        "@types/node": "^24.0.14",
         "@types/uuid": "^10.0.0",
+        "@types/uuid-validate": "^0.0.3",
         "@typescript-eslint/eslint-plugin": "^8.35.1",
         "@typescript-eslint/parser": "^8.35.1",
         "eslint": "^9.30.1",
@@ -34,16 +36,21 @@
         "typescript": "^5.8.3"
     },
     "dependencies": {
+        "axios": "^1.10.0",
         "body-parser": "^2.2.0",
+        "bson": "^6.10.4",
         "cors": "^2.8.5",
         "dotenv": "^17.0.1",
         "dotenv-cli": "^8.0.0",
         "express": "^5.1.0",
+        "express-validator": "^7.2.1",
         "helmet": "^8.1.0",
+        "http-status": "^2.1.0",
         "pg": "^8.16.3",
         "pg-hstore": "^2.3.4",
         "sequelize": "^6.37.7",
         "sequelize-auto": "^0.8.8",
-        "uuid": "^11.1.0"
+        "uuid": "^11.1.0",
+        "uuid-validate": "^0.0.3"
     }
 }

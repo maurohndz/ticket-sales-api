@@ -1,23 +1,17 @@
 {
   "compilerOptions": {
-    // Versión objetivo de ECMAScript para el JavaScript compilado
-    "target": "ES2022",
-    // Sistema de módulos a utilizar
-    "module": "NodeNext",
-    // Estrategia de resolución de módulos
-    "moduleResolution": "NodeNext",
-    // Directorio de salida para los archivos compilados
-    "outDir": "./dist",
-    // Permite la interoperabilidad entre módulos CommonJS y ES6
+    "module": "commonjs",
     "esModuleInterop": true,
-    // Fuerza consistencia en el uso de mayúsculas/minúsculas en nombres de archivos
-    "forceConsistentCasingInFileNames": true,
-    // Habilita todas las verificaciones estrictas de TypeScript
+    "target": "es6",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "sourceMap": false,
+    "rootDir": ".",
     "strict": true,
-    // Omite la verificación de tipos en archivos de declaración de librerías
-    "skipLibCheck": true,
-
-    "types": ["jest", "node"]
+    "noEmit": false,
+    "resolveJsonModule": true,
+    "noUnusedLocals": true,
+    "outDir": "./dist"
   },
   // Archivos a incluir en la compilación
   "include": [

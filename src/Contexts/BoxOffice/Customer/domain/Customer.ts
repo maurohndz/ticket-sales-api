@@ -1,15 +1,18 @@
-import {ICustomer} from './ICustomer.js';
 import { v4 as uuidv4 } from 'uuid';
+export interface ICustomer {
+  id: string;
+  names: string;
+  lastName: string;
+  email: string;
+  status?: boolean;
+}
 
 export class Customer {
-  private readonly _id?: string;
+  private readonly _id: string;
   private _names: string;
   private _lastName: string;
   private _email: string;
   private _status: boolean;
-  private readonly _createdAt: Date;
-  private _updatedAt: Date;
-  private _deletedAt?: Date;
 
   constructor({
     id,
@@ -17,22 +20,16 @@ export class Customer {
     lastName,
     email,
     status = true,
-    createdAt = new Date(),
-    updatedAt = new Date(),
-    deletedAt
   }: ICustomer) {
     this._id = id ?? uuidv4();
     this._names = names;
     this._lastName = lastName;
     this._email = email;
     this._status = status;
-    this._createdAt = createdAt;
-    this._updatedAt = updatedAt;
-    this._deletedAt = deletedAt;
   }
 
   // Getters
-  get id(): string | undefined {
+  get id(): string {
     return this._id;
   }
 
@@ -52,24 +49,9 @@ export class Customer {
     return this._status;
   }
 
-  get createdAt(): Date {
-    return this._createdAt;
-  }
-
-  get updatedAt(): Date {
-    return this._updatedAt;
-  }
-
-  get deletedAt(): Date | undefined {
-    return this._deletedAt;
-  }
 
   get fullName(): string {
     return `${this._names} ${this._lastName}`;
-  }
-
-  get isActive(): boolean {
-    return this._status && !this._deletedAt;
   }
 
   // Método para convertir a objeto plano (útil para persistencia)
@@ -80,9 +62,6 @@ export class Customer {
       lastName: this._lastName,
       email: this._email,
       status: this._status,
-      createdAt: this._createdAt,
-      updatedAt: this._updatedAt,
-      deletedAt: this._deletedAt
     };
   }
 }

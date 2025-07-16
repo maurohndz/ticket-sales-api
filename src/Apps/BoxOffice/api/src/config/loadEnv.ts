@@ -1,6 +1,6 @@
 import { resolve } from 'path';
-import dotenv from 'dotenv';
+import { config } from 'dotenv';
 
-dotenv.config({
+config({
     path: resolve(`./environment/.env.${process.env.ENVIRONMENT}`).trim(),
 });

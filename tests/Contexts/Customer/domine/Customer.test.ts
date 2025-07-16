@@ -7,6 +7,7 @@ describe('[DOMINE] - Customer', () => {
      */
     it('Crear usuario con los datos requeridos', () => {
         const customer = new Customer({
+            id: uuidv4(),
             names: 'John',
             lastName: 'Doe',
             email: 'john.doe@example.com',
@@ -27,9 +28,6 @@ describe('[DOMINE] - Customer', () => {
             lastName: 'Doe',
             email: 'john.doe@example.com',
             status: true,
-            createdAt: new Date(),
-            updatedAt: new Date(),
-            deletedAt: new Date(),
         });
 
         expect(customer).toBeDefined();
@@ -38,8 +36,5 @@ describe('[DOMINE] - Customer', () => {
         expect(customer.lastName).toBe('Doe');
         expect(customer.email).toBe('john.doe@example.com');
         expect(customer.status).toBe(true);
-        expect(customer.createdAt).toBeDefined();
-        expect(customer.updatedAt).toBeDefined();
-        expect(customer.deletedAt).toBeDefined();
     });
 });

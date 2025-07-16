@@ -1,2 +1,2 @@
-import './config/loadEnv.js';
-import './App.js';
+import './config/loadEnv';
+import './App';
