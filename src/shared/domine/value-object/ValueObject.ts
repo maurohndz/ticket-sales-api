@@ -1,10 +1,14 @@
 export type Primitives = String | string | number | Boolean | boolean | Date;
 
 export abstract class ValueObject<T extends Primitives> {
-    readonly value: T;
+    private readonly value: T;
 
     constructor(value: T) {
         this.value = value;
+    }
+
+    getValue() {
+        return this.value;
     }
 
     equals(other: ValueObject<T>): boolean {

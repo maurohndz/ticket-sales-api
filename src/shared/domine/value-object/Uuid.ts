@@ -1,7 +1,7 @@
 import validate from 'uuid-validate';
 import { v4 as uuid } from 'uuid';
-import { Exception } from '../Exception.js';
-import { ValueObject } from './ValueObject.js';
+import { Exception } from '../Exception';
+import { ValueObject } from './ValueObject';
 
 export class Uuid extends ValueObject<string> {
     constructor(value: string) {

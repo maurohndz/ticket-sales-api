@@ -1,26 +1,20 @@
 import { v4 as uuidv4 } from 'uuid';
-export interface ICustomer {
-  id: string;
-  names: string;
-  lastName: string;
-  email: string;
-  status?: boolean;
-}
+import { Uuid } from '../../../../shared/domine/value-object/Uuid';
 
 export class Customer {
-  private readonly _id: string;
+  private readonly _id: Uuid;
   private _names: string;
   private _lastName: string;
   private _email: string;
   private _status: boolean;
 
-  constructor({
-    id,
-    names,
-    lastName,
-    email,
+  constructor(
+    id: Uuid,
+    names: string,
+    lastName: string,
+    email: string,
     status = true,
-  }: ICustomer) {
+  ) {
     this._id = id ?? uuidv4();
     this._names = names;
     this._lastName = lastName;
@@ -29,7 +23,7 @@ export class Customer {
   }
 
   // Getters
-  get id(): string {
+  get id(): Uuid {
     return this._id;
   }
 
@@ -55,9 +49,9 @@ export class Customer {
   }
 
   // Método para convertir a objeto plano (útil para persistencia)
-  public toPrimitives(): ICustomer {
+  public toPrimitives() {
     return {
-      id: this._id,
+      id: this._id.getValue(),
       names: this._names,
       lastName: this._lastName,
       email: this._email,
