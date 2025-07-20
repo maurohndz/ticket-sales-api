@@ -31,4 +31,13 @@ export class CreateCustomerRequestMother {
             email: 'test@yopmail.com'
         });
     }
+
+    static invalidRequest(): CustomerCreatorRequest {
+        return {
+            id: IdMother.random().value,
+            names: NamesMother.invalidName(),
+            lastName: LastNameMother.random().value,
+            email: 'test@yopmail.com'
+        };
+    }
 }

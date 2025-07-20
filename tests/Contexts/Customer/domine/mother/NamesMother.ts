@@ -10,4 +10,8 @@ export class NamesMother {
     static random() {
         return this.create(MotherCreator.random().string.alpha({ length: 30 }));
     }
+
+    static invalidName() {
+        return MotherCreator.random().string.alpha({ length: 40 });
+    }
 }
