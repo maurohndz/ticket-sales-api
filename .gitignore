@@ -58,3 +58,5 @@ temp/
 Thumbs.db 
 
 *.repo
+
+data/*

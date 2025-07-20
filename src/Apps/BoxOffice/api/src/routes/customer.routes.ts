@@ -2,8 +2,10 @@ import { Router, Request, Response } from 'express';
 import { body } from 'express-validator';
 import { CustomerPutController } from '../controllers/CustomerPutController';
 import { CustomerCreator } from '../../../../../Contexts/BoxOffice/Customer/application/CustomerCreator';
-import { FileCustomerRepository } from '../../../../../Contexts/BoxOffice/Customer/infrastructure/persistence/FileCustomerRepository';
+//import { FileCustomerRepository } from '../../../../../Contexts/BoxOffice/Customer/infrastructure/persistence/FileCustomerRepository';
+import { MongoCustomerRepository } from '../../../../../Contexts/BoxOffice/Customer/infrastructure/persistence/MongoCustomerRepository';
 import { validateReqSchema } from '../routes/validations';
+import { MongoClientFactory } from '../../../../../shared/infrastructure/persistence/mongo/MongoClientFactory';
 
 export const signUp = (router: Router) => {
     const reqSchema = [
@@ -13,7 +15,8 @@ export const signUp = (router: Router) => {
         body('email').exists().isString(),
     ];
 
-    const repository = new FileCustomerRepository();
+    const client = MongoClientFactory.createClient('BoxOffice', { url: 'mongodb://root:example@localhost:27017/' });
+    const repository = new MongoCustomerRepository(client);
     const customerCreator = new CustomerCreator(repository);
     const controller = new CustomerPutController(customerCreator);
 

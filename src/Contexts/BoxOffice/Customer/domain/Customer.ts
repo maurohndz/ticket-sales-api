@@ -4,11 +4,11 @@ import { NamesValueObject } from './value-object/NamesValueObject';
 import { LastNameValueObject } from './value-object/LastNameValueObject';
 
 export class Customer {
-  private readonly _id: Uuid;
-  private _names: NamesValueObject;
-  private _lastName: LastNameValueObject;
-  private _email: Email;
-  private _status: boolean;
+  readonly _id: Uuid;
+  readonly _names: NamesValueObject;
+  readonly _lastName: LastNameValueObject;
+  readonly _email: Email;
+  readonly _status: boolean;
 
   constructor({
     id,
@@ -30,30 +30,13 @@ export class Customer {
     this._status = status;
   }
 
-  // Getters
-  get id(): Uuid {
-    return this._id;
-  }
-
-  get names() {
-    return this._names;
-  }
-
-  get lastName() {
-    return this._lastName;
-  }
-
-  get email() {
-    return this._email;
-  }
-
-  get status(): boolean {
-    return this._status;
-  }
-
-
-  get fullName(): string {
-    return `${this._names} ${this._lastName}`;
+  public static fromPrimitives({ id, names, lastName, email }: { id: string, names: string; lastName: string, email: string }) {
+    return new Customer({
+      id: new Uuid(id),
+      names: new NamesValueObject(names),
+      lastName: new LastNameValueObject(lastName),
+      email: new Email(email)
+    });
   }
 
   // Método para convertir a objeto plano (útil para persistencia)
