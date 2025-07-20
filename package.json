@@ -7,10 +7,11 @@
         "box-office:models": "dotenv -v ENVIRONMENT=local -- node ./src/Contexts/BoxOffice/shared/infrastructure/persistence/postgresql/config/sequelize_auto.js",
         "lint": "eslint . --ext .ts",
         "lint:fix": "eslint . --ext .ts --fix",
+        "test": "npm run test:unit && npm run test:features",
         "test:unit": "NODE_ENV=test jest --no-coverage",
         "test:watch": "jest --watch",
         "test:coverage": "jest --coverage",
-        "test:bo:api:features": "NODE_ENV=test cucumber-js -p boxOffice_api"
+        "test:features": "NODE_ENV=test cucumber-js -p boxOffice_api"
     },
     "author": "Mauro Hernández",
     "license": "ISC",
