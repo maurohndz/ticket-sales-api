@@ -5,6 +5,7 @@ import { Customer } from '../../domain/Customer';
 import { Uuid } from '../../../../../shared/domine/value-object/Uuid';
 import { NamesValueObject } from '../../domain/value-object/NamesValueObject';
 import { LastNameValueObject } from '../../domain/value-object/LastNameValueObject';
+import { Email } from '../../../../../shared/domine/value-object/EmailValueObject';
 
 export class FileCustomerRepository implements CustomerRepository {
     private FILE_PATH = `${__dirname}/customer`;
@@ -22,7 +23,7 @@ export class FileCustomerRepository implements CustomerRepository {
             id: new Uuid(customerPrimitives.id),
             names: new NamesValueObject(customerPrimitives.names),
             lastName: new LastNameValueObject(customerPrimitives.lastName),
-            email: customerPrimitives.email,
+            email: new Email(customerPrimitives.email),
         });
     }
 

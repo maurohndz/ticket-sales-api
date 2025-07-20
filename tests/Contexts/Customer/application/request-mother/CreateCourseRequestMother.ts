@@ -2,6 +2,8 @@ import { CustomerCreatorRequest } from "../../../../../src/Contexts/BoxOffice/Cu
 import { LastNameValueObject } from "../../../../../src/Contexts/BoxOffice/Customer/domain/value-object/LastNameValueObject";
 import { NamesValueObject } from "../../../../../src/Contexts/BoxOffice/Customer/domain/value-object/NamesValueObject";
 import { Uuid } from "../../../../../src/shared/domine/value-object/Uuid";
+import { Email } from "../../../../../src/shared/domine/value-object/EmailValueObject";
+import { EmailMother } from "../../domine/mother/EmailMother";
 import { IdMother } from "../../domine/mother/IdMother";
 import { LastNameMother } from "../../domine/mother/LastNameMother";
 import { NamesMother } from "../../domine/mother/NamesMother";
@@ -10,7 +12,7 @@ interface ICreate {
     id: Uuid;
     names: NamesValueObject;
     lastName: LastNameValueObject;
-    email: string;
+    email: Email;
 }
 
 export class CreateCustomerRequestMother {
@@ -19,7 +21,7 @@ export class CreateCustomerRequestMother {
             id: id.value,
             names: names.value,
             lastName: lastName.value,
-            email: email,
+            email: email.value,
         }
     };
 
@@ -28,7 +30,7 @@ export class CreateCustomerRequestMother {
             id: IdMother.random(),
             names: NamesMother.random(),
             lastName: LastNameMother.random(),
-            email: 'test@yopmail.com'
+            email: EmailMother.random()
         });
     }
 
@@ -37,7 +39,7 @@ export class CreateCustomerRequestMother {
             id: IdMother.random().value,
             names: NamesMother.invalidName(),
             lastName: LastNameMother.random().value,
-            email: 'test@yopmail.com'
+            email: EmailMother.random().value
         };
     }
 }
