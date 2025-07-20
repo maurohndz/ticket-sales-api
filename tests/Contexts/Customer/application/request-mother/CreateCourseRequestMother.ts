@@ -25,7 +25,7 @@ export class CreateCustomerRequestMother {
         }
     };
 
-    static ramdon() {
+    static ramdon(): CustomerCreatorRequest {
         return this.create({
             id: IdMother.random(),
             names: NamesMother.random(),

@@ -10,7 +10,7 @@ describe('FileCustomerRepository', () => {
 
         await repository.save(expectedCustomer);
 
-        const customer = await repository.search(data.id);
+        const customer = await repository.search(expectedCustomer.id);
 
         expect(customer).toEqual(expectedCustomer);
     });

@@ -30,6 +30,27 @@ export class Customer {
     this._status = status;
   }
 
+  // Getters para las propiedades privadas
+  get id(): Uuid {
+    return this._id;
+  }
+
+  get names(): NamesValueObject {
+    return this._names;
+  }
+
+  get lastName(): LastNameValueObject {
+    return this._lastName;
+  }
+
+  get email(): Email {
+    return this._email;
+  }
+
+  get status(): boolean {
+    return this._status;
+  }
+
   public static fromPrimitives({ id, names, lastName, email }: { id: string, names: string; lastName: string, email: string }) {
     return new Customer({
       id: new Uuid(id),
@@ -38,6 +59,8 @@ export class Customer {
       email: new Email(email)
     });
   }
+
+  
 
   // Método para convertir a objeto plano (útil para persistencia)
   public toPrimitives() {

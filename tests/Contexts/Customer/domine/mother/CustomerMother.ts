@@ -4,6 +4,10 @@ import { NamesValueObject } from "../../../../../src/Contexts/BoxOffice/Customer
 import { LastNameValueObject } from "../../../../../src/Contexts/BoxOffice/Customer/domain/value-object/LastNameValueObject";
 import { CustomerCreatorRequest } from "../../../../../src/Contexts/BoxOffice/Customer/application/CustomerCreatorRequest";
 import { Email } from "../../../../../src/shared/domine/value-object/EmailValueObject";
+import { IdMother } from "./IdMother";
+import { NamesMother } from "./NamesMother";
+import { LastNameMother } from "./LastNameMother";
+import { EmailMother } from "./EmailMother";
 
 export class CustomerMother {
     static fromRequest(request: CustomerCreatorRequest) {
@@ -12,6 +16,15 @@ export class CustomerMother {
             names: new NamesValueObject(request.names),
             lastName: new LastNameValueObject(request.lastName),
             email: new Email(request.email)
+        });
+    }
+
+    static random(): Customer {
+        return new Customer({
+            id: IdMother.random(),
+            names: NamesMother.random(),
+            lastName: LastNameMother.random(),
+            email: EmailMother.random(),
         });
     }
 }

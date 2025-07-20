@@ -15,8 +15,8 @@ export class FileCustomerRepository implements CustomerRepository {
         await fs.promises.writeFile(this.filePath(customer.id.value), serialize(customerData));
     }
 
-    async search(customerId: string): Promise<Customer> {
-        const customerData = await fs.promises.readFile(this.filePath(customerId));
+    async search(id: Uuid): Promise<Customer> {
+        const customerData = await fs.promises.readFile(this.filePath(id.value));
         const customerPrimitives = deserialize(customerData);
 
         return new Customer({
