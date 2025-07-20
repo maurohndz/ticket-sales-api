@@ -3,26 +3,27 @@ import { serialize, deserialize } from 'bson';
 import { CustomerRepository } from '../../domain/CustomerRepository';
 import { Customer } from '../../domain/Customer';
 import { Uuid } from '../../../../../shared/domine/value-object/Uuid';
+import { NamesValueObject } from '../../domain/value-object/NamesValueObject';
+import { LastNameValueObject } from '../../domain/value-object/LastNameValueObject';
 
 export class FileCustomerRepository implements CustomerRepository {
     private FILE_PATH = `${__dirname}/customer`;
 
     async save(customer: Customer): Promise<void> {
         const customerData = customer.toPrimitives();
-        await fs.promises.writeFile(this.filePath(customer.id.getValue()), serialize(customerData));
+        await fs.promises.writeFile(this.filePath(customer.id.value), serialize(customerData));
     }
 
     async search(customerId: string): Promise<Customer> {
         const customerData = await fs.promises.readFile(this.filePath(customerId));
         const customerPrimitives = deserialize(customerData);
 
-        return new Customer(
-            new Uuid(customerPrimitives.id),
-            customerPrimitives.names,
-            customerPrimitives.lastName,
-            customerPrimitives.email,
-            customerPrimitives.status
-        );
+        return new Customer({
+            id: new Uuid(customerPrimitives.id),
+            names: new NamesValueObject(customerPrimitives.names),
+            lastName: new LastNameValueObject(customerPrimitives.lastName),
+            email: customerPrimitives.email,
+        });
     }
 
     private filePath(id: string): string {

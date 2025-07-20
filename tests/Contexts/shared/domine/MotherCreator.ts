@@ -1,0 +1,7 @@
+import { simpleFaker } from '@faker-js/faker';
+
+export class MotherCreator {
+  static random() {
+    return simpleFaker;
+  }
+}

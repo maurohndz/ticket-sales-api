@@ -7,7 +7,7 @@
         "box-office:models": "dotenv -v ENVIRONMENT=local -- node ./src/Contexts/BoxOffice/shared/infrastructure/persistence/postgresql/config/sequelize_auto.js",
         "lint": "eslint . --ext .ts",
         "lint:fix": "eslint . --ext .ts --fix",
-        "test:unit": "NODE_ENV=test jest",
+        "test:unit": "NODE_ENV=test jest --no-coverage",
         "test:watch": "jest --watch",
         "test:coverage": "jest --coverage",
         "test:bo:api:features": "NODE_ENV=test cucumber-js -p boxOffice_api"
@@ -16,6 +16,11 @@
     "license": "ISC",
     "devDependencies": {
         "@cucumber/cucumber": "^12.0.0",
+        "@faker-js/faker": "^9.9.0",
+        "@types/babel__core": "^7.20.5",
+        "@types/babel__generator": "^7.27.0",
+        "@types/babel__template": "^7.4.4",
+        "@types/babel__traverse": "^7.20.7",
         "@types/cors": "^2.8.19",
         "@types/cucumber": "^6.0.1",
         "@types/express": "^5.0.3",

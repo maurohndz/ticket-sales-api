@@ -1,21 +1,28 @@
-import { v4 as uuidv4 } from 'uuid';
 import { Uuid } from '../../../../shared/domine/value-object/Uuid';
+import { NamesValueObject } from './value-object/NamesValueObject';
+import { LastNameValueObject } from './value-object/LastNameValueObject';
 
 export class Customer {
   private readonly _id: Uuid;
-  private _names: string;
-  private _lastName: string;
+  private _names: NamesValueObject;
+  private _lastName: LastNameValueObject;
   private _email: string;
   private _status: boolean;
 
-  constructor(
-    id: Uuid,
-    names: string,
-    lastName: string,
-    email: string,
+  constructor({
+    id,
+    names,
+    lastName,
+    email,
     status = true,
-  ) {
-    this._id = id ?? uuidv4();
+  } : {
+    id: Uuid,
+    names: NamesValueObject,
+    lastName: LastNameValueObject,
+    email: string,
+    status?: boolean
+  }) {
+    this._id = id ;
     this._names = names;
     this._lastName = lastName;
     this._email = email;
@@ -27,11 +34,11 @@ export class Customer {
     return this._id;
   }
 
-  get names(): string {
+  get names() {
     return this._names;
   }
 
-  get lastName(): string {
+  get lastName() {
     return this._lastName;
   }
 
@@ -51,9 +58,9 @@ export class Customer {
   // Método para convertir a objeto plano (útil para persistencia)
   public toPrimitives() {
     return {
-      id: this._id.getValue(),
-      names: this._names,
-      lastName: this._lastName,
+      id: this._id.value,
+      names: this._names.value,
+      lastName: this._lastName.value,
       email: this._email,
       status: this._status,
     };

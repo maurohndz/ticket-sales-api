@@ -11,13 +11,23 @@
     "noEmit": false,
     "resolveJsonModule": true,
     "noUnusedLocals": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "skipLibCheck": true,
+    "types": ["node", "jest", "cucumber"],
+    "typeRoots": ["./node_modules/@types"],
   },
   // Archivos a incluir en la compilación
   "include": [
     "src/**/*",
-    "test/**/*"
+    "tests/**/*"
   ],
   // Archivos a excluir de la compilación
-  "exclude": ["node_modules", "dist", "**/models/**/*"]
+  "exclude": [
+    "node_modules", 
+    "dist", 
+    "**/models/**/*",
+    "coverage",
+    "**/*.test.ts",
+    "**/*.spec.ts"
+  ]
 }

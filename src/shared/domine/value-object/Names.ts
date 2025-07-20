@@ -1,4 +1,4 @@
-import { String } from './String.js';
+import { String } from './StringValueObject.js';
 
 export class Names extends String {
     constructor(value: string) {

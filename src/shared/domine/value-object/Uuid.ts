@@ -10,8 +10,8 @@ export class Uuid extends ValueObject<string> {
         this.ensureIsValidUuid(value);
     }
 
-    static random(): Uuid {
-        return new Uuid(uuid());
+    static random(): string {
+        return uuid();
     }
 
     private ensureIsValidUuid(id: string): void {
