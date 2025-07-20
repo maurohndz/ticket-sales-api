@@ -15,7 +15,7 @@ export const signUp = (router: Router) => {
         body('email').exists().isString(),
     ];
 
-    const client = MongoClientFactory.createClient('BoxOffice', { url: 'mongodb://root:example@localhost:27017/' });
+    const client = MongoClientFactory.createClient('BoxOffice', { url: 'mongodb://root:example@localhost:27017/ts-bo' });
     const repository = new MongoCustomerRepository(client);
     const customerCreator = new CustomerCreator(repository);
     const controller = new CustomerPutController(customerCreator);
