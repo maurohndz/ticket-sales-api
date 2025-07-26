@@ -1,43 +1,37 @@
 version: '3.8'
 
 services:
-  ticket-sales-api:
+  ticket-sales-postgres:
     image: postgres:17
-    container_name: ticket-sales-api
-    hostname: ticket-sales-api
+    container_name: ticket-sales-postgres
+    hostname: ticket-sales-postgres
     environment:
       POSTGRES_USER: ticket_sales
       POSTGRES_PASSWORD: Abc123456*
-      POSTGRES_MULTIPLE_DATABASES: box_office,notification,back_office
     ports:
-      - "8001:5432"
+      - "9001:5432"
     volumes:
-      - ticket-sales-api-data:/var/lib/postgresql/data
-      - ./init-multiple-dbs.sh:/docker-entrypoint-initdb.d/init-multiple-dbs.sh
-    restart: unless-stopped
+      - ticket-sales-postgres-data:/var/lib/postgresql/data
     networks:
       - dev_network
-  mongo:
+  ticket-sales-mongo:
     image: mongo
+    container_name: ticket-sales-mongo
+    hostname: ticket-sales-mongo
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_ROOT_USERNAME: ticket_sales
+      MONGO_INITDB_ROOT_PASSWORD: Abc123456*
     ports:
-      - "27017:27017"
-
-  mongo-express:
-    image: mongo-express
-    ports:
-      - 8081:8081
-    environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: example
-      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
-      ME_CONFIG_BASICAUTH: false
+      - "9002:27017"
+    volumes:
+      - ticket-sales-mongo-data:/data/db
+    networks:
+      - dev_network
 
 networks:
   dev_network:
     external: true
 
 volumes:
-  ticket-sales-api-data:
+  ticket-sales-postgres-data:
+  ticket-sales-mongo-data:
