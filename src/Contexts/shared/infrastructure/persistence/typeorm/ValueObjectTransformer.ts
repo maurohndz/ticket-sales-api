@@ -1,9 +1,9 @@
 import { NewableClass } from '../../../domine/NewableClass';
-import { Primitives, ValueObject } from '../../../domine/value-object/ValueObject';
+import { ValueObject } from '../../../domine/value-object/ValueObject';
 
-export const ValueObjectTransformer = <T extends Primitives>(ValueObject: NewableClass<ValueObject<any>>) => {
+export const ValueObjectTransformer = (ValueObjectClass: NewableClass<ValueObject<any>>) => {
     return {
-        to: (value: ValueObject<T>): T => value.value,
-        from: (value: T): ValueObject<T> => new ValueObject(value)
+        to: (value: ValueObject<any>): any => value.value,
+        from: (value: any): ValueObject<any> => new ValueObjectClass(value)
     };
 };

@@ -6,4 +6,8 @@ export abstract class ValueObject<T extends Primitives> {
     constructor(value: T) {
         this.value = value;
     }
+
+    toString(): string {
+        return this.value.toString()
+    }
 }

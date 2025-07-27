@@ -21,7 +21,7 @@ export const CustomerEntity = new EntitySchema<Customer>({
             type: String,
             transformer: ValueObjectTransformer(NamesValueObject)
         },
-        lastName: {
+        last_name: {
             type: String,
             transformer: ValueObjectTransformer(LastNameValueObject)
         },

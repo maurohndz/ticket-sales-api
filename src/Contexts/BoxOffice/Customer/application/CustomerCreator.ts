@@ -10,12 +10,12 @@ export class CustomerCreator {
     constructor(private readonly repository: CustomerRepository) {}
 
     async run(request: CustomerCreatorRequest) {
-        const customer = new Customer({
-            id: new Uuid(request.id),
-            names: new NamesValueObject(request.names),
-            lastName: new LastNameValueObject(request.lastName),
-            email: new Email(request.email)
-        });
+        const customer = new Customer(
+            new Uuid(request.id),
+            new NamesValueObject(request.names),
+            new LastNameValueObject(request.lastName),
+            new Email(request.email)
+        );
 
         return this.repository.save(customer);
     }

@@ -1,6 +1,5 @@
 import { DataSource } from 'typeorm';
 import { TypeOrmConfig } from './TypeOrmConfig';
-import { CustomerEntity } from '../../../../BoxOffice/Customer/infrastructure/persistence/typeorm/CustomerEntity';
 
 export class TypeOrmClientFactory {
   private static dataSources: { [key: string]: DataSource } = {};
@@ -30,9 +29,8 @@ export class TypeOrmClientFactory {
       username: config.username,
       password: config.password,
       database: config.database,
-      entities: [ CustomerEntity ],
+      entities: [ __dirname + '/../../../../**/*/infrastructure/persistence/typeorm/*{.js,.ts}' ],
       synchronize: config.synchronize,
-      // ...otros parámetros según tu config
     });
 
     await dataSource.initialize();

@@ -6,23 +6,18 @@ import { LastNameValueObject } from './value-object/LastNameValueObject';
 export class Customer {
   readonly _id: Uuid;
   readonly _names: NamesValueObject;
-  readonly _lastName: LastNameValueObject;
+  readonly _last_name: LastNameValueObject;
   readonly _email: Email;
 
-  constructor({
-    id,
-    names,
-    lastName,
-    email,
-  } : {
+  constructor(
     id: Uuid,
     names: NamesValueObject,
-    lastName: LastNameValueObject,
+    last_name: LastNameValueObject,
     email: Email,
-  }) {
+  ) {
     this._id = id ;
     this._names = names;
-    this._lastName = lastName;
+    this._last_name = last_name;
     this._email = email;
   }
 
@@ -35,21 +30,16 @@ export class Customer {
     return this._names;
   }
 
-  get lastName(): LastNameValueObject {
-    return this._lastName;
+  get last_name(): LastNameValueObject {
+    return this._last_name;
   }
 
   get email(): Email {
     return this._email;
   }
 
-  public static fromPrimitives({ id, names, lastName, email }: { id: string, names: string; lastName: string, email: string }) {
-    return new Customer({
-      id: new Uuid(id),
-      names: new NamesValueObject(names),
-      lastName: new LastNameValueObject(lastName),
-      email: new Email(email)
-    });
+  public static fromPrimitives({ id, names, last_name, email }: { id: string, names: string; last_name: string, email: string }) {
+    return new Customer(new Uuid(id), new NamesValueObject(names), new LastNameValueObject(last_name), new Email(email));
   }
 
   // Método para convertir a objeto plano (útil para persistencia)
@@ -57,7 +47,7 @@ export class Customer {
     return {
       id: this._id.value,
       names: this._names.value,
-      lastName: this._lastName.value,
+      last_name: this._last_name.value,
       email: this._email.value,
     };
   }
