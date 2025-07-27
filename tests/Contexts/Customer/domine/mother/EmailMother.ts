@@ -1,4 +1,4 @@
-import { Email } from "../../../../../src/shared/domine/value-object/EmailValueObject";
+import { Email } from "../../../../../src/Contexts/shared/domine/value-object/EmailValueObject";
 import { MotherCreator } from "../../../shared/domine/MotherCreator";
 
 export class EmailMother {

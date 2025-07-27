@@ -1,5 +1,5 @@
-import { Uuid } from '../../../../shared/domine/value-object/Uuid';
-import { Email } from '../../../../shared/domine/value-object/EmailValueObject';
+import { Uuid } from '../../../shared/domine/value-object/Uuid';
+import { Email } from '../../../shared/domine/value-object/EmailValueObject';
 import { Customer } from '../domain/Customer';
 import { CustomerRepository } from '../domain/CustomerRepository'
 import { LastNameValueObject } from '../domain/value-object/LastNameValueObject';

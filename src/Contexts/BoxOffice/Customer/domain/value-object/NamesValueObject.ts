@@ -1,5 +1,5 @@
-import { Exception } from "../../../../../shared/domine/Exception";
-import { StringValueObject } from "../../../../../shared/domine/value-object/StringValueObject";
+import { Exception } from "../../../../shared/domine/Exception";
+import { StringValueObject } from "../../../../shared/domine/value-object/StringValueObject";
 
 export class NamesValueObject extends StringValueObject {
     constructor(value: string) {

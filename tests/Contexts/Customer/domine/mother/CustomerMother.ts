@@ -1,9 +1,9 @@
 import { Customer } from "../../../../../src/Contexts/BoxOffice/Customer/domain/Customer";
-import { Uuid } from "../../../../../src/shared/domine/value-object/Uuid";
+import { Uuid } from "../../../../../src/Contexts/shared/domine/value-object/Uuid";
 import { NamesValueObject } from "../../../../../src/Contexts/BoxOffice/Customer/domain/value-object/NamesValueObject";
 import { LastNameValueObject } from "../../../../../src/Contexts/BoxOffice/Customer/domain/value-object/LastNameValueObject";
 import { CustomerCreatorRequest } from "../../../../../src/Contexts/BoxOffice/Customer/application/CustomerCreatorRequest";
-import { Email } from "../../../../../src/shared/domine/value-object/EmailValueObject";
+import { Email } from "../../../../../src/Contexts/shared/domine/value-object/EmailValueObject";
 import { IdMother } from "./IdMother";
 import { NamesMother } from "./NamesMother";
 import { LastNameMother } from "./LastNameMother";

@@ -1,4 +1,4 @@
-import { MongoClientFactory } from '../../../../../src/shared/infrastructure/persistence/mongo/MongoClientFactory';
+import { MongoClientFactory } from '../../../../../src/Contexts/shared/infrastructure/persistence/mongo/MongoClientFactory';
 import { MongoCustomerRepository } from '../../../../../src/Contexts/BoxOffice/Customer/infrastructure/persistence/MongoCustomerRepository';
 import { MongoEnvironmentArranger } from '../../../shared/infrastructure/mongo/MongoEnvironmentArranger';
 import { CustomerMother } from '../../domine/mother/CustomerMother';

@@ -1,4 +1,4 @@
-import { Uuid } from '../../../../shared/domine/value-object/Uuid';
+import { Uuid } from '../../../shared/domine/value-object/Uuid';
 import { Customer } from './Customer';
 
 export interface CustomerRepository {

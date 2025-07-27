@@ -1,7 +1,7 @@
 import { Collection, MongoClient } from "mongodb";
 import { CustomerRepository } from "../../domain/CustomerRepository";
 import { Customer } from "../../domain/Customer";
-import { Uuid } from "../../../../../shared/domine/value-object/Uuid";
+import { Uuid } from "../../../../shared/domine/value-object/Uuid";
 
 interface CustomerDocument {
     _id: string;

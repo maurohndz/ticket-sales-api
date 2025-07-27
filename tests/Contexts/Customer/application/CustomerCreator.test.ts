@@ -2,7 +2,7 @@ import { CustomerRepositoryMock } from '../__mocks__/CustomerRepositoryMock';
 import { CustomerCreator } from '../../../../src/Contexts/BoxOffice/Customer/application/CustomerCreator';
 import { CreateCustomerRequestMother } from './request-mother/CreateCourseRequestMother';
 import { CustomerMother } from '../domine/mother/CustomerMother';
-import { Exception } from '../../../../src/shared/domine/Exception';
+import { Exception } from '../../../../src/Contexts/shared/domine/Exception';
 
 describe('CustomerCreator', () => {
     let repository: CustomerRepositoryMock;

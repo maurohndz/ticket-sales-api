@@ -1,6 +1,6 @@
 // ErrorHandlerMiddleware.ts
 import { Request, Response, NextFunction } from 'express';
-import { Exception } from '../../../../../shared/domine/Exception';
+import { Exception } from '../../../../../Contexts/shared/domine/Exception';
 
 export class ErrorHandlerMiddleware {
     static handle(error: Error, req: Request, res: Response, next: NextFunction): void {

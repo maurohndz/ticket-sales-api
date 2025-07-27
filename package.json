@@ -57,6 +57,7 @@
         "pg-hstore": "^2.3.4",
         "sequelize": "^6.37.7",
         "sequelize-auto": "^0.8.8",
+        "typeorm": "^0.3.25",
         "uuid": "^11.1.0",
         "uuid-validate": "^0.0.3"
     }

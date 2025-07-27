@@ -1,6 +1,6 @@
 import { Customer } from '../../../../src/Contexts/BoxOffice/Customer/domain/Customer';
 import { CustomerRepository } from '../../../../src/Contexts/BoxOffice/Customer/domain/CustomerRepository';
-import { Uuid } from '../../../../src/shared/domine/value-object/Uuid';
+import { Uuid } from '../../../../src/Contexts/shared/domine/value-object/Uuid';
 
 export class CustomerRepositoryMock implements CustomerRepository {
     private saveMock: jest.Mock;

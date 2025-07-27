@@ -1,4 +1,4 @@
-import { Uuid } from "../../../../../src/shared/domine/value-object/Uuid";
+import { Uuid } from "../../../../../src/Contexts/shared/domine/value-object/Uuid";
 
 export class IdMother {
     static create(value: string): Uuid {
