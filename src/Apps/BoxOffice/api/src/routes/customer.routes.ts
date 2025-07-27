@@ -26,7 +26,8 @@ export const signUp = (router: Router) => {
         username: 'ticket_sales',
         type: 'postgres',
         database: 'box-office',
-        synchronize: false
+        synchronize: false,
+        applicationName: 'BoxOffice-API'
     });
     const repository = new TypeOrmCustomerRepository(client);
 

@@ -9,7 +9,7 @@ export class TypeOrmClientFactory {
     let dataSource = TypeOrmClientFactory.getDataSource(contextName);
 
     if (!dataSource) {
-      dataSource = await TypeOrmClientFactory.createAndConnectDataSource(config);
+      dataSource = await TypeOrmClientFactory.createAndConnectDataSource(config, contextName);
       TypeOrmClientFactory.registerDataSource(dataSource, contextName);
     }
 
@@ -20,7 +20,7 @@ export class TypeOrmClientFactory {
     return TypeOrmClientFactory.dataSources[contextName];
   }
 
-  private static async createAndConnectDataSource(config: TypeOrmConfig): Promise<DataSource> {
+  private static async createAndConnectDataSource(config: TypeOrmConfig, contextName: string): Promise<DataSource> {
     console.log(__dirname + '/../');
     const dataSource = new DataSource({
       type: config.type,
@@ -31,6 +31,9 @@ export class TypeOrmClientFactory {
       database: config.database,
       entities: [ __dirname + '/../../../../**/*/infrastructure/persistence/typeorm/*{.js,.ts}' ],
       synchronize: config.synchronize,
+      extra: {
+        application_name: config?.applicationName ?? contextName,
+      }
     });
 
     await dataSource.initialize();

@@ -6,4 +6,5 @@ export interface TypeOrmConfig {
     database: string;
     type: 'postgres';
     synchronize: boolean;
+    applicationName?: string;
 }
