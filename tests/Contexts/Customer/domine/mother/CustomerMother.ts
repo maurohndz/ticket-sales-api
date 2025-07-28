@@ -11,20 +11,20 @@ import { EmailMother } from "./EmailMother";
 
 export class CustomerMother {
     static fromRequest(request: CustomerCreatorRequest) {
-        return new Customer({
-            id: new Uuid(request.id),
-            names: new NamesValueObject(request.names),
-            lastName: new LastNameValueObject(request.lastName),
-            email: new Email(request.email)
-        });
+        return new Customer(
+            new Uuid(request.id),
+            new NamesValueObject(request.names),
+            new LastNameValueObject(request.last_name),
+            new Email(request.email)
+        );
     }
 
     static random(): Customer {
-        return new Customer({
-            id: IdMother.random(),
-            names: NamesMother.random(),
-            lastName: LastNameMother.random(),
-            email: EmailMother.random(),
-        });
+        return new Customer(
+            IdMother.random(),
+            NamesMother.random(),
+            LastNameMother.random(),
+            EmailMother.random(),
+        );
     }
 }

@@ -11,16 +11,16 @@ import { NamesMother } from "../../domine/mother/NamesMother";
 interface ICreate {
     id: Uuid;
     names: NamesValueObject;
-    lastName: LastNameValueObject;
+    last_name: LastNameValueObject;
     email: Email;
 }
 
 export class CreateCustomerRequestMother {
-    static create({ id, names, lastName, email }: ICreate): CustomerCreatorRequest {
+    static create({ id, names, last_name, email }: ICreate): CustomerCreatorRequest {
         return {
             id: id.value,
             names: names.value,
-            lastName: lastName.value,
+            last_name: last_name.value,
             email: email.value,
         }
     };
@@ -29,7 +29,7 @@ export class CreateCustomerRequestMother {
         return this.create({
             id: IdMother.random(),
             names: NamesMother.random(),
-            lastName: LastNameMother.random(),
+            last_name: LastNameMother.random(),
             email: EmailMother.random()
         });
     }
@@ -38,7 +38,7 @@ export class CreateCustomerRequestMother {
         return {
             id: IdMother.random().value,
             names: NamesMother.invalidName(),
-            lastName: LastNameMother.random().value,
+            last_name: LastNameMother.random().value,
             email: EmailMother.random().value
         };
     }

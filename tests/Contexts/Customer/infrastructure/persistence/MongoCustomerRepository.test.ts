@@ -3,7 +3,7 @@ import { MongoCustomerRepository } from '../../../../../src/Contexts/BoxOffice/C
 import { MongoEnvironmentArranger } from '../../../shared/infrastructure/mongo/MongoEnvironmentArranger';
 import { CustomerMother } from '../../domine/mother/CustomerMother';
 
-const client = MongoClientFactory.createClient('BoxOffice', { url: 'mongodb://root:example@localhost:27017/' });
+const client = MongoClientFactory.createClient('BoxOffice', { url: 'mongodb://ticket_sales:Abc123456*@localhost:9002/' });
 const repository = new MongoCustomerRepository(client);
 const environmentArranger = new MongoEnvironmentArranger(client);
 

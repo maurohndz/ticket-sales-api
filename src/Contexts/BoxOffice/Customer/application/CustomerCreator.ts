@@ -13,7 +13,7 @@ export class CustomerCreator {
         const customer = new Customer(
             new Uuid(request.id),
             new NamesValueObject(request.names),
-            new LastNameValueObject(request.lastName),
+            new LastNameValueObject(request.last_name),
             new Email(request.email)
         );
 

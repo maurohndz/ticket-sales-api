@@ -13,7 +13,7 @@ export const signUp = (router: Router) => {
     const reqSchema = [
         body('id').exists().isString(),
         body('names').exists().isString(),
-        body('lastName').exists().isString(),
+        body('last_name').exists().isString(),
         body('email').exists().isString(),
     ];
 

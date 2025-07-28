@@ -9,7 +9,7 @@ Feature: Create a new customer
     {
       "id": "ef8ac118-8d7f-49cc-abec-78e0d05af80a",
       "names": "Jhon",
-      "lastName": "Perez",
+      "last_name": "Perez",
       "email": "jhonperez@yopmail.com"
     }
     """
@@ -21,7 +21,7 @@ Feature: Create a new customer
     {
       "id": "ef8ac118-8d7f-49cc-abec-78e0d05af80a",
       "names": 400,
-      "lastName": "Perez",
+      "last_name": "Perez",
       "email": "jhonperez@yopmail.com"
     }
     """

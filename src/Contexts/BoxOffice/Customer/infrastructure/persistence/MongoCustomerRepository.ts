@@ -6,7 +6,7 @@ import { Uuid } from "../../../../shared/domine/value-object/Uuid";
 interface CustomerDocument {
     _id: string;
     names: string;
-    lastName: string;
+    last_name: string;
     email: string;
 }
 
@@ -24,7 +24,7 @@ export class MongoCustomerRepository implements CustomerRepository {
         return document ? Customer.fromPrimitives({
             id: id.value,
             names: document.names,
-            lastName: document.lastName,
+            last_name: document.last_name,
             email: document.email
         }) : null;
     }
