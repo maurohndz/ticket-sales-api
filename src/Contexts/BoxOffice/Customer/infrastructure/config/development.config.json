@@ -1,0 +1,14 @@
+{
+    "env": "development",
+    "mongo": {
+        "url": "mongodb://localhost:9002/mooc-backend-dev"
+    },
+    "typeorm": {
+        "host": "localhost",
+        "port": 9001,
+        "username": "ticket_sales",
+        "password": "Abc123456*",
+        "database": "box-office",
+        "application": "API-SALES"
+    }
+}

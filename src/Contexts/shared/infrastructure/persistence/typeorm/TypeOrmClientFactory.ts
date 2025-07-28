@@ -23,14 +23,14 @@ export class TypeOrmClientFactory {
   private static async createAndConnectDataSource(config: TypeOrmConfig, contextName: string): Promise<DataSource> {
     console.log(__dirname + '/../');
     const dataSource = new DataSource({
-      type: config.type,
+      type: 'postgres',
       host: config.host,
       port: config.port,
       username: config.username,
       password: config.password,
       database: config.database,
       entities: [ __dirname + '/../../../../**/*/infrastructure/persistence/typeorm/*{.js,.ts}' ],
-      synchronize: config.synchronize,
+      synchronize: false,
       extra: {
         application_name: config?.applicationName ?? contextName,
       }
