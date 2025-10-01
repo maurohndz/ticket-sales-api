@@ -1,5 +1,0 @@
-services:
-
-  BoxOffice.Customers.domine.CustomerRepository:
-    class: ../../../../../../Contexts/BoxOffice/Customer/infrastructure/persistence/TypeOrmCustomerRepository
-    arguments: []

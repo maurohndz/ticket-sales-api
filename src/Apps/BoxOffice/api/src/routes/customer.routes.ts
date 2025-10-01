@@ -7,7 +7,6 @@ import { CustomerCreator } from '../../../../../Contexts/BoxOffice/Customer/appl
 import { validateReqSchema } from '../routes/validations';
 import { TypeOrmClientFactory } from '../../../../../Contexts/shared/infrastructure/persistence/typeorm/TypeOrmClientFactory';
 import { TypeOrmCustomerRepository } from '../../../../../Contexts/BoxOffice/Customer/infrastructure/persistence/TypeOrmCustomerRepository';
-import container from '../../dependency-injection';
 //import { MongoClientFactory } from '../../../../../Contexts/shared/infrastructure/persistence/mongo/MongoClientFactory';
 
 export const signUp = (router: Router) => {
@@ -21,11 +20,17 @@ export const signUp = (router: Router) => {
     /*const client = MongoClientFactory.createClient('BoxOffice', { url: 'mongodb://root:example@localhost:27017' });
     const repository = new MongoCustomerRepository(client);*/
     const client = TypeOrmClientFactory.createDataSource('BoxOffice', {
+        database: 'ticket_sales',
+        host: 'localhost',
+        password: 'Abc123456*',
+        port: 9001,
+        username: 'ticket_sales',
+        synchronize: false,
+        type: 'postgres'
     });
     const repository = new TypeOrmCustomerRepository(client);
-
     const customerCreator = new CustomerCreator(repository);
-    const controller: CustomerPutController = container.get('Apps.BoxOffice.controllers.CustomerPutController');
+    const controller = new CustomerPutController(customerCreator);
 
     router.put('/customer/:id', reqSchema, validateReqSchema, (req: Request, res: Response) => controller.run(req, res));
 };

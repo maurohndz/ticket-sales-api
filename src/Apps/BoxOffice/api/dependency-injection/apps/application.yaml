@@ -1,5 +1,0 @@
-services:
-
-  Apps.BoxOffice.controllers.CustomerPutController:
-    class: ../../src/controllers/CustomerPutController
-    arguments: []

@@ -11,7 +11,7 @@
         "test:unit": "NODE_ENV=test jest --no-coverage",
         "test:watch": "jest --watch",
         "test:coverage": "jest --coverage",
-        "test:features": "NODE_ENV=test cucumber-js -p boxOffice_api"
+        "test:features": "dotenv -v NODE_ENV=test -- cucumber-js -p boxOffice_api"
     },
     "author": "Mauro Hernández",
     "license": "ISC",
