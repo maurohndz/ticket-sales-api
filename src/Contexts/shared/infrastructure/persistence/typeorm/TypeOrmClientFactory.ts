@@ -4,7 +4,7 @@ import { TypeOrmConfig } from './TypeOrmConfig';
 export class TypeOrmClientFactory {
   private static dataSources: { [key: string]: DataSource } = {};
 
-  static async createDataSource(contextName: string, config: TypeOrmConfig): Promise<DataSource> {
+  static async createClient(contextName: string, config: TypeOrmConfig): Promise<DataSource> {
     let dataSource = TypeOrmClientFactory.getDataSource(contextName);
 
     if (!dataSource) {

@@ -1,0 +1,5 @@
+services:
+
+  App.BoxOffice.Api.StatusGetController:
+    class: ../src/controllers/StatusGetController
+    public: true

@@ -1,2 +1,2 @@
 import './config/loadEnv';
-import './App';
+import './server';
