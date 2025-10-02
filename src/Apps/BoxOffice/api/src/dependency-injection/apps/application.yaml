@@ -1,3 +1,0 @@
-services:
-  StatusGetController:
-    class: '../../controllers/StatusGetController.ts'

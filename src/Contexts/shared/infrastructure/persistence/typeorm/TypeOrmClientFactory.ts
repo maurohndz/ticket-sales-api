@@ -5,7 +5,6 @@ export class TypeOrmClientFactory {
   private static dataSources: { [key: string]: DataSource } = {};
 
   static async createDataSource(contextName: string, config: TypeOrmConfig): Promise<DataSource> {
-    console.log(config)
     let dataSource = TypeOrmClientFactory.getDataSource(contextName);
 
     if (!dataSource) {
@@ -21,7 +20,6 @@ export class TypeOrmClientFactory {
   }
 
   private static async createAndConnectDataSource(config: TypeOrmConfig, contextName: string): Promise<DataSource> {
-    console.log(__dirname + '/../');
     const dataSource = new DataSource({
       type: 'postgres',
       host: config.host,
