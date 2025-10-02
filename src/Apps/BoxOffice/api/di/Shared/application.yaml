@@ -1,0 +1,13 @@
+services:
+  
+  BoxOffice.Shared.Infrastructure.TypeOrmConfigFactory:
+    factory: 
+      class: ../../../../../Contexts/BoxOffice/shared/infrastructure/persistence/typeorm/TypeOrmConfigFactory
+      method: 'createConfig'
+
+  BoxOffice.Shared.Infrastructure.TypeOrmClientConnection:
+    factory: 
+      class: ../../../../../Contexts/shared/infrastructure/persistence/typeorm/TypeOrmClientFactory
+      method: 'createClient'
+    arguments: ['BoxOffice', '@BoxOffice.Shared.Infrastructure.TypeOrmConfigFactory']
+

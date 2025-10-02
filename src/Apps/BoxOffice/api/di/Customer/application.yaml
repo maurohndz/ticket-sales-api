@@ -1,0 +1,14 @@
+services:
+
+  BoxOffice.Customer.Domine.CustomerRepository:
+    class: ../../../../../Contexts/BoxOffice/Customer/infrastructure/persistence/TypeOrmCustomerRepository
+    arguments: ['@BoxOffice.Shared.Infrastructure.TypeOrmClientConnection']
+
+  BoxOffice.Customer.Application.CustomerCreator:
+    class: ../../../../../Contexts/BoxOffice/Customer/application/CustomerCreator
+    arguments: ['@BoxOffice.Customer.Domine.CustomerRepository']
+
+  App.BoxOffice.Api.CustomerPutController:
+    class: ../../src/controllers/CustomerPutController
+    arguments: ['@BoxOffice.Customer.Application.CustomerCreator']
+

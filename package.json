@@ -1,45 +1,67 @@
 {
-  "name": "apis-colas",
-  "version": "1.0.0",
-  "description": "Monorepo containing three APIs: notification, back-office, and box-office",
-  "private": true,
-  "workspaces": [
-    "notification-api",
-    "back-office-api",
-    "box-office-api"
-  ],
-  "scripts": {
-    "lint": "npm run lint --workspaces",
-    "lint:fix": "npm run lint:fix --workspaces",
-    "prepare": "husky install"
-  },
-  "keywords": [
-    "monorepo",
-    "api",
-    "microservices"
-  ],
-  "author": "Mauro Hernández",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/node": "^24.0.1",
-    "@typescript-eslint/eslint-plugin": "^6.15.0",
-    "@typescript-eslint/parser": "^6.15.0",
-    "eslint": "^8.56.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.1.3",
-    "husky": "^8.0.3",
-    "lint-staged": "^15.2.0",
-    "prettier": "^3.1.1",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
-  },
-  "lint-staged": {
-    "*.{js,ts}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{json,md}": [
-      "prettier --write"
-    ]
-  }
+    "name": "apis-colas",
+    "version": "1.0.0",
+    "description": "Implementacion de Sistema de venta de entradas con arquitectura hexagonal",
+    "scripts": {
+        "bo:api:dev": "dotenv -v ENVIRONMENT=development -- ts-node-dev --loader ts-node/esm ./src/Apps/BoxOffice/api/src/index.ts",
+        "box-office:models": "dotenv -v ENVIRONMENT=local -- node ./src/Contexts/BoxOffice/shared/infrastructure/persistence/postgresql/config/sequelize_auto.js",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "test": "npm run test:unit && npm run test:features",
+        "test:unit": "NODE_ENV=test jest --no-coverage",
+        "test:watch": "jest --watch",
+        "test:coverage": "jest --coverage",
+        "test:features": "dotenv -v NODE_ENV=test -- cucumber-js -p boxOffice_api"
+    },
+    "author": "Mauro Hernández",
+    "license": "ISC",
+    "devDependencies": {
+        "@cucumber/cucumber": "^12.0.0",
+        "@faker-js/faker": "^9.9.0",
+        "@types/babel__core": "^7.20.5",
+        "@types/babel__generator": "^7.27.0",
+        "@types/babel__template": "^7.4.4",
+        "@types/babel__traverse": "^7.20.7",
+        "@types/cors": "^2.8.19",
+        "@types/cucumber": "^6.0.1",
+        "@types/express": "^5.0.3",
+        "@types/jest": "^30.0.0",
+        "@types/node": "^24.0.14",
+        "@types/uuid": "^10.0.0",
+        "@types/uuid-validate": "^0.0.3",
+        "@typescript-eslint/eslint-plugin": "^8.35.1",
+        "@typescript-eslint/parser": "^8.35.1",
+        "eslint": "^9.30.1",
+        "eslint-config-prettier": "^10.1.5",
+        "eslint-plugin-prettier": "^5.5.1",
+        "jest": "^30.0.3",
+        "prettier": "^3.6.2",
+        "ts-jest": "^29.4.0",
+        "ts-node": "^10.9.2",
+        "ts-node-dev": "^2.0.0",
+        "typescript": "^5.8.3"
+    },
+    "dependencies": {
+        "@types/convict": "^6.1.6",
+        "axios": "^1.10.0",
+        "body-parser": "^2.2.0",
+        "bson": "^6.10.4",
+        "convict": "^6.2.4",
+        "cors": "^2.8.5",
+        "dotenv": "^17.0.1",
+        "dotenv-cli": "^8.0.0",
+        "express": "^5.1.0",
+        "express-validator": "^7.2.1",
+        "helmet": "^8.1.0",
+        "http-status": "^2.1.0",
+        "mongodb": "^6.17.0",
+        "node-dependency-injection": "^3.2.2",
+        "pg": "^8.16.3",
+        "pg-hstore": "^2.3.4",
+        "sequelize": "^6.37.7",
+        "sequelize-auto": "^0.8.8",
+        "typeorm": "^0.3.25",
+        "uuid": "^11.1.0",
+        "uuid-validate": "^0.0.3"
+    }
 }
