@@ -7,10 +7,12 @@ export class CustomerPutController implements Controller {
     constructor(private customerCreator: CustomerCreator) {}
 
     async run(req: Request, res: Response) {
-        const {id, names, last_name, email} = req.body;
+        const {id, names, last_name, email, password} = req.body;
 
-        await this.customerCreator.run({ id, names, last_name, email });
+        await this.customerCreator.run({ id, names, last_name, email, password });
 
         res.status(httpStatus.CREATED).send();
+
+
     }
 }
