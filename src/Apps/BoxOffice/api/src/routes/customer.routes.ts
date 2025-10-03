@@ -13,6 +13,7 @@ export const signUp = (router: Router) => {
         body('names').exists().isString(),
         body('last_name').exists().isString(),
         body('email').exists().isString(),
+        body('password').exists().isString(),
     ];
 
     /*const client = MongoClientFactory.createClient('BoxOffice', { url: 'mongodb://root:example@localhost:27017' });

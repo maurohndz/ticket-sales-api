@@ -22,6 +22,7 @@
         "@types/babel__generator": "^7.27.0",
         "@types/babel__template": "^7.4.4",
         "@types/babel__traverse": "^7.20.7",
+        "@types/bcrypt": "^6.0.0",
         "@types/cors": "^2.8.19",
         "@types/cucumber": "^6.0.1",
         "@types/express": "^5.0.3",
@@ -44,6 +45,7 @@
     "dependencies": {
         "@types/convict": "^6.1.6",
         "axios": "^1.10.0",
+        "bcrypt": "^6.0.0",
         "body-parser": "^2.2.0",
         "bson": "^6.10.4",
         "convict": "^6.2.4",

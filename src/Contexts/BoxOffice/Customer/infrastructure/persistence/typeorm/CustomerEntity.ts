@@ -29,5 +29,14 @@ export const CustomerEntity = new EntitySchema<Customer>({
             type: String,
             transformer: ValueObjectTransformer(Email)
         }
+    },
+    relations: {
+        credential: {
+            type: 'one-to-one',
+            target: 'Credential',
+            inverseSide: 'customer',
+            cascade: true,
+            eager: true,
+        }
     }
 });
