@@ -5,7 +5,7 @@ import { Credential } from '../domain/Credential';
 import { CustomerRepository } from '../domain/CustomerRepository'
 import { LastNameValueObject } from '../domain/value-object/LastNameValueObject';
 import { NamesValueObject } from '../domain/value-object/NamesValueObject';
-import { CustomerCreatorRequest } from './CustomerCreatorRequest';
+import { CustomerCreatorRequest } from './requests/CustomerCreatorRequest';
 import { PasswordValueObject } from '../../../shared/domine/value-object/PasswordValueObject';
 import { BcryptPasswordHasher } from '../../../shared/infrastructure/security/BcryptPasswordHasher';
 

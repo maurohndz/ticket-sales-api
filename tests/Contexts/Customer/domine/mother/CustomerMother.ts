@@ -2,7 +2,7 @@ import { Customer } from "../../../../../src/Contexts/BoxOffice/Customer/domain/
 import { Uuid } from "../../../../../src/Contexts/shared/domine/value-object/Uuid";
 import { NamesValueObject } from "../../../../../src/Contexts/BoxOffice/Customer/domain/value-object/NamesValueObject";
 import { LastNameValueObject } from "../../../../../src/Contexts/BoxOffice/Customer/domain/value-object/LastNameValueObject";
-import { CustomerCreatorRequest } from "../../../../../src/Contexts/BoxOffice/Customer/application/CustomerCreatorRequest";
+import { CustomerCreatorRequest } from "../../../../../src/Contexts/BoxOffice/Customer/application/requests/CustomerCreatorRequest";
 import { Email } from "../../../../../src/Contexts/shared/domine/value-object/EmailValueObject";
 import { IdMother } from "./IdMother";
 import { NamesMother } from "./NamesMother";
