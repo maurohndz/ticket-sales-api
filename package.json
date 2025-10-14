@@ -8,7 +8,7 @@
         "lint": "eslint . --ext .ts",
         "lint:fix": "eslint . --ext .ts --fix",
         "test": "npm run test:unit && npm run test:features",
-        "test:unit": "NODE_ENV=test jest --no-coverage",
+        "test:unit": "dotenv -v NODE_ENV=test -- jest --no-coverage",
         "test:watch": "jest --watch",
         "test:coverage": "jest --coverage",
         "test:features": "dotenv -v NODE_ENV=test -- cucumber-js -p boxOffice_api"
@@ -44,6 +44,7 @@
     },
     "dependencies": {
         "@types/convict": "^6.1.6",
+        "@types/jsonwebtoken": "^9.0.10",
         "axios": "^1.10.0",
         "bcrypt": "^6.0.0",
         "body-parser": "^2.2.0",
@@ -56,6 +57,7 @@
         "express-validator": "^7.2.1",
         "helmet": "^8.1.0",
         "http-status": "^2.1.0",
+        "jsonwebtoken": "^9.0.2",
         "mongodb": "^6.17.0",
         "node-dependency-injection": "^3.2.2",
         "pg": "^8.16.3",

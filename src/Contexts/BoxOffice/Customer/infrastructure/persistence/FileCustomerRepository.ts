@@ -6,6 +6,8 @@ import { Uuid } from '../../../../shared/domine/value-object/Uuid';
 import { NamesValueObject } from '../../domain/value-object/NamesValueObject';
 import { LastNameValueObject } from '../../domain/value-object/LastNameValueObject';
 import { Email } from '../../../../shared/domine/value-object/EmailValueObject';
+import { Credential } from '../../domain/Credential';
+import { PasswordValueObject } from '../../../../shared/domine/value-object/PasswordValueObject';
 
 export class FileCustomerRepository implements CustomerRepository {
     private FILE_PATH = `${__dirname}/customer`;
@@ -18,12 +20,14 @@ export class FileCustomerRepository implements CustomerRepository {
     async search(id: Uuid): Promise<Customer> {
         const customerData = await fs.promises.readFile(this.filePath(id.value));
         const customerPrimitives = deserialize(customerData);
+        const cutsomerId = new Uuid(customerPrimitives.id);
 
         return new Customer(
-            new Uuid(customerPrimitives.id),
+            cutsomerId,
             new NamesValueObject(customerPrimitives.names),
             new LastNameValueObject(customerPrimitives.last_name),
             new Email(customerPrimitives.email),
+            new Credential(cutsomerId, new PasswordValueObject(customerPrimitives.password))
         );
     }
 
