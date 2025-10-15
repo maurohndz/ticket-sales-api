@@ -6,8 +6,7 @@ import { Uuid } from '../../../../shared/domine/value-object/Uuid';
 import { NamesValueObject } from '../../domain/value-object/NamesValueObject';
 import { LastNameValueObject } from '../../domain/value-object/LastNameValueObject';
 import { Email } from '../../../../shared/domine/value-object/EmailValueObject';
-import { Credential } from '../../domain/Credential';
-import { PasswordValueObject } from '../../../../shared/domine/value-object/PasswordValueObject';
+import { CustomerSearchParams } from '../../domain/CustomerTypes';
 
 export class FileCustomerRepository implements CustomerRepository {
     private FILE_PATH = `${__dirname}/customer`;
@@ -17,18 +16,20 @@ export class FileCustomerRepository implements CustomerRepository {
         await fs.promises.writeFile(this.filePath(customer.id.value), serialize(customerData));
     }
 
-    async search(id: Uuid): Promise<Customer> {
+    async find(id: Uuid): Promise<Customer> {
         const customerData = await fs.promises.readFile(this.filePath(id.value));
         const customerPrimitives = deserialize(customerData);
-        const cutsomerId = new Uuid(customerPrimitives.id);
 
         return new Customer(
-            cutsomerId,
+            new Uuid(customerPrimitives.id),
             new NamesValueObject(customerPrimitives.names),
             new LastNameValueObject(customerPrimitives.last_name),
-            new Email(customerPrimitives.email),
-            new Credential(cutsomerId, new PasswordValueObject(customerPrimitives.password))
+            new Email(customerPrimitives.email)
         );
+    }
+
+    async search(params: CustomerSearchParams): Promise<null | Customer> {
+        return await new Promise(() => {});
     }
 
     private filePath(id: string): string {

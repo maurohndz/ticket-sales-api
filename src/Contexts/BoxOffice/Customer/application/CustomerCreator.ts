@@ -1,13 +1,10 @@
 import { Uuid } from '../../../shared/domine/value-object/Uuid';
 import { Email } from '../../../shared/domine/value-object/EmailValueObject';
 import { Customer } from '../domain/Customer';
-import { Credential } from '../domain/Credential';
 import { CustomerRepository } from '../domain/CustomerRepository'
 import { LastNameValueObject } from '../domain/value-object/LastNameValueObject';
 import { NamesValueObject } from '../domain/value-object/NamesValueObject';
 import { CustomerCreatorRequest } from './requests/CustomerCreatorRequest';
-import { PasswordValueObject } from '../../../shared/domine/value-object/PasswordValueObject';
-import { BcryptPasswordHasher } from '../../../shared/infrastructure/security/BcryptPasswordHasher';
 
 export class CustomerCreator {
     constructor(private readonly repository: CustomerRepository) {}
@@ -17,11 +14,7 @@ export class CustomerCreator {
             new Uuid(request.id),
             new NamesValueObject(request.names),
             new LastNameValueObject(request.last_name),
-            new Email(request.email),
-            new Credential(
-                new Uuid(request.id),
-                await PasswordValueObject.fromPlain(request.password, new BcryptPasswordHasher())
-            )
+            new Email(request.email)
         );
 
         return this.repository.save(customer);

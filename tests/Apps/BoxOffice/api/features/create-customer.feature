@@ -10,8 +10,7 @@ Feature: Create a new customer
       "id": "ef8ac118-8d7f-49cc-abec-78e0d05af80a",
       "names": "Jhon",
       "last_name": "Perez",
-      "email": "jhonperez@yopmail.com",
-      "password": "Abc123456*"
+      "email": "jhonperez@yopmail.com"
     }
     """
     Then the response status code should be 201
@@ -23,8 +22,7 @@ Feature: Create a new customer
       "id": "ef8ac118-8d7f-49cc-abec-78e0d05af80a",
       "names": 400,
       "last_name": "Perez",
-      "email": "jhonperez@yopmail.com",
-      "password": "Abc123456*"
+      "email": "jhonperez@yopmail.com"
     }
     """
     Then the response status code should be 422

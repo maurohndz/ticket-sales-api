@@ -7,25 +7,21 @@ import { EmailMother } from "../../domine/mother/EmailMother";
 import { IdMother } from "../../domine/mother/IdMother";
 import { LastNameMother } from "../../domine/mother/LastNameMother";
 import { NamesMother } from "../../domine/mother/NamesMother";
-import { PasswordValueObject } from "../../../../../src/Contexts/shared/domine/value-object/PasswordValueObject";
-import { PasswordMother } from "../../domine/mother/PasswordMother";
 
 interface ICreate {
     id: Uuid;
     names: NamesValueObject;
     last_name: LastNameValueObject;
     email: Email;
-    password: PasswordValueObject;
 }
 
 export class CreateCustomerRequestMother {
-    static create({ id, names, last_name, email, password }: ICreate): CustomerCreatorRequest {
+    static create({ id, names, last_name, email }: ICreate): CustomerCreatorRequest {
         return {
             id: id.value,
             names: names.value,
             last_name: last_name.value,
             email: email.value,
-            password: password.value 
         }
     };
 
@@ -35,7 +31,6 @@ export class CreateCustomerRequestMother {
             names: NamesMother.random(),
             last_name: LastNameMother.random(),
             email: EmailMother.random(),
-            password: PasswordMother.random()
         });
     }
 
@@ -45,7 +40,6 @@ export class CreateCustomerRequestMother {
             names: NamesMother.invalidName(),
             last_name: LastNameMother.random().value,
             email: EmailMother.random().value,
-            password: PasswordMother.random().value
         };
     }
 }
