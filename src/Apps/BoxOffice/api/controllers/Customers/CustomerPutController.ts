@@ -1,9 +1,9 @@
 import httpStatus from 'http-status';
 import { Request, Response } from 'express';
-import { Controller } from './Controller';
+import { IController } from '../IController';
 import { CustomerCreator } from '../../../../../Contexts/BoxOffice/Customer/application/CustomerCreator';
 
-export class CustomerPutController implements Controller {
+export class CustomerPutController implements IController {
     constructor(private customerCreator: CustomerCreator) {}
 
     async run(req: Request, res: Response) {

@@ -9,6 +9,6 @@ services:
     arguments: ['@BoxOffice.Customer.Domine.CustomerRepository']
 
   App.BoxOffice.Api.CustomerPutController:
-    class: ../../src/controllers/CustomerPutController
+    class: ../../src/controllers/Customer/CustomerPutController
     arguments: ['@BoxOffice.Customer.Application.CustomerCreator']
 

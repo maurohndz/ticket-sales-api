@@ -1,6 +1,6 @@
 import http from 'http';
 import { createApp } from './App';
-import { mountContainer } from '../di/index';
+import { mountContainer } from './dependency-injection/index';
 
 (async () => {
     await mountContainer;
