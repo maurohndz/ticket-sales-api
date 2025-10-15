@@ -31,7 +31,8 @@ export class TypeOrmClientFactory {
       synchronize: false,
       extra: {
         application_name: config?.applicationName ?? contextName,
-      }
+      },
+      logging: true
     });
 
     await dataSource.initialize();

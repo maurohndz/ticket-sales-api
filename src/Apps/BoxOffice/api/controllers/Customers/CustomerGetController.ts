@@ -1,7 +1,7 @@
 import httpStatus from 'http-status';
 import { Request, Response } from 'express';
-import { CustomerViewer } from "../../../../Contexts/BoxOffice/Customer/application/CustomerViewer";
-import { IController } from "./IController";
+import { CustomerViewer } from '../../../../../Contexts/BoxOffice/Customer/application/CustomerViewer';
+import { IController } from '../IController';
 
 export class CustomerGetController implements IController {
     constructor(private customerViewer: CustomerViewer) {}

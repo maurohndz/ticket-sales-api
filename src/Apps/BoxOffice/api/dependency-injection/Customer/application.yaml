@@ -8,7 +8,14 @@ services:
     class: ../../../../../Contexts/BoxOffice/Customer/application/CustomerCreator
     arguments: ['@BoxOffice.Customer.Domine.CustomerRepository']
 
+  BoxOffice.Customer.Application.CustomerViewer:
+    class: ../../../../../Contexts/BoxOffice/Customer/application/CustomerViewer
+    arguments: ['@BoxOffice.Customer.Domine.CustomerRepository']
+
   App.BoxOffice.Api.CustomerPutController:
-    class: ../../src/controllers/Customer/CustomerPutController
+    class: ../../controllers/Customers/CustomerPutController
     arguments: ['@BoxOffice.Customer.Application.CustomerCreator']
 
+  App.BoxOffice.Api.CustomerGetController:
+    class: ../../controllers/Customers/CustomerGetController
+    arguments: ['@BoxOffice.Customer.Application.CustomerViewer']

@@ -12,7 +12,7 @@ export class TypeOrmCustomerRepository extends TypeOrmRepository<Customer> imple
 
     public async find(id: Uuid): Promise<null|Customer> {
         const repository = await this.repository();
-        const customer = await repository.findOne({ where: { id: id.value } });
+        const customer = await repository.findOne({ where: { id } });
 
         return customer;
     }

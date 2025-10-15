@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Implementacion de Sistema de venta de entradas con arquitectura hexagonal",
     "scripts": {
-        "bo:api:dev": "dotenv -v ENVIRONMENT=development -- ts-node-dev --loader ts-node/esm ./src/Apps/BoxOffice/api/src/index.ts",
+        "bo:api:dev": "dotenv -v ENVIRONMENT=development -- ts-node-dev --loader ts-node/esm ./src/Apps/BoxOffice/api/index.ts",
         "box-office:models": "dotenv -v ENVIRONMENT=local -- node ./src/Contexts/BoxOffice/shared/infrastructure/persistence/postgresql/config/sequelize_auto.js",
         "lint": "eslint . --ext .ts",
         "lint:fix": "eslint . --ext .ts --fix",
