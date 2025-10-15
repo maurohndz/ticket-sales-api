@@ -25,7 +25,6 @@ export class TypeOrmClientFactory {
       host: config.host,
       port: config.port,
       username: config.username,
-      password: config.password,
       database: config.database,
       entities: [ __dirname + '/../../../../**/*/infrastructure/persistence/typeorm/*{.js,.ts}' ],
       synchronize: false,

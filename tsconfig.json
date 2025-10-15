@@ -4,7 +4,7 @@
     "esModuleInterop": true,
     "target": "es6",
     "noImplicitAny": true,
-    "moduleResolution": "node",
+    "moduleResolution": "node10",
     "sourceMap": false,
     "rootDir": ".",
     "strict": true,
@@ -15,6 +15,7 @@
     "skipLibCheck": true,
     "types": ["node", "jest", "cucumber"],
     "typeRoots": ["./node_modules/@types"],
+    "ignoreDeprecations": "6.0"
   },
   // Archivos a incluir en la compilación
   "include": [
